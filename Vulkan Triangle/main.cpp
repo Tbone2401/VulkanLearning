@@ -164,7 +164,8 @@ private:
 		pickPhysicalDevice();
 		createLogicalDevice();
 		createSwapChain();
-		vkCreateImageViews();
+		createImageViews();
+		createGraphicsPipeline();
 	}
 
 	void mainLoop()
@@ -174,7 +175,12 @@ private:
 			glfwPollEvents();
 		}
 	}
-	void vkCreateImageViews()
+
+	void createGraphicsPipeline()
+	{
+
+	}
+	void createImageViews()
 	{
 		swapChainImageViews.resize(swapChainImages.size(), VDeleter<VkImageView>{device, vkDestroyImageView});
 		for (uint32_t i = 0; i < swapChainImages.size(); ++i)
